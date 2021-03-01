@@ -24,7 +24,7 @@ print(" ")
 stockNum = instCpStockCode.GetCount()
 
 for i in range(stockNum):
-    if instCpStockCode.GetData(1,i) == 'NAVER':
+    if instCpStockCode.GetData(1,i) == 'KAKAO':
         print(instCpStockCode.GetData(0,i))
         print(instCpStockCode.GetData(1,i))
         print(i)
