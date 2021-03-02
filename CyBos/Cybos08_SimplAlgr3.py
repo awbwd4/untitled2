@@ -31,6 +31,7 @@ instMarketEye.BlockRequest()
 
 numStock = instMarketEye.GetHeaderValue(2) #2 - 종목 개수
 
+
 sumPer = 0
 for i in range(numStock):
     sumPer += instMarketEye.GetDataValue(0, i)
