@@ -29,17 +29,18 @@ passwd = input("웹 로그인 비밀번호: ")
 cert_passwd = input("공인인증서 비번: ")
 
 
-instXASession = win32com.client.DispatchWithEvents("XASession.XASession", XASessionEventHandler)
+
+instXASession = win32com.client.DispatchWithEvents("XA_Session.XASession", XASessionEventHandler)
 instXASession.ConnectServer("hts.ebestsec.co.kr", 20001)
 instXASession.Login(id, passwd,cert_passwd, 0, 0)
 
 while XASessionEventHandler.login_state == 0:
-    pythoncom.PumpingWaitingMessage()
+    pythoncom.PumpWaitingMessages()
 
 
 #-----------------T8413-----------------------
 
-instXAQueryT8413 = win32com.client.DispatchWithEvents("XA_DataSet.XAQeury", XAQueryEventHandlerT8413)
+instXAQueryT8413 = win32com.client.DispatchWithEvents("XA_DataSet.XAQuery", XAQueryEventHandlerT8413)
 instXAQueryT8413.ResFileName = "C:\\eBEST\\xingAPI\\Res\\t8413.res"
 
 instXAQueryT8413.SetFieldData("t8413InBlock", "shcode", 0, "078020")
@@ -68,5 +69,5 @@ for i in range(count_2):
     high = instXAQueryT8413.GetFieldData("t8413OutBlock1","high",i)
     low = instXAQueryT8413.GetFieldData("t8413OutBlock1","low",i)
     close = instXAQueryT8413.GetFieldData("t8413OutBlock1","close",i)
-    print(date, open, high, low, close)
+    print("날짜 : ", date,"시가 : ", open,"고가 : ", high,"저가 : ", low,"종가 : ", close)
 

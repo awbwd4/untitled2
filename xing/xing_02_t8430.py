@@ -82,7 +82,7 @@ count = instXAQueryT8430.GetBlockCount("t8430OutBlock")
 print("주식종목조회 데이터의 총 개수 : ", int(count))
 
 
-for i in range(5):
+for i in range(10):
     hname    = instXAQueryT8430.GetFieldData("t8430OutBlock","hname",i)
     shname   = instXAQueryT8430.GetFieldData("t8430OutBlock","shname",i)
     expcode  = instXAQueryT8430.GetFieldData("t8430OutBlock","expcode",i)
