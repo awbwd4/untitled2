@@ -24,6 +24,8 @@ class XAQueryEventHandlerT8430:
 
 instXASession = win32com.client.DispatchWithEvents("XA_Session.XASession", XASessionEventHandler)
 
+
+
 id = input('웹 로그인 아이디 : ')
 pwd = input('웹 로그인 암호 : ')
 cert_pwd = input('공인인증서 암호 : ')
@@ -64,7 +66,7 @@ print("=========4====================")
 instXAQueryT8430.Request(0)
 
 
-#콜백이 올 때 까지 대기
+#call-back이 올 때 까지 대기
 print("=========5====================")
 count = 0
 while XAQueryEventHandlerT8430.query_state == 0:
@@ -76,11 +78,9 @@ while XAQueryEventHandlerT8430.query_state == 0:
         count = 0
         break
 
-
 #데이터의 총 개수.
 count = instXAQueryT8430.GetBlockCount("t8430OutBlock")
 print("주식종목조회 데이터의 총 개수 : ", int(count))
-
 
 for i in range(10):
     hname    = instXAQueryT8430.GetFieldData("t8430OutBlock","hname",i)

@@ -24,9 +24,15 @@ class XAQueryEventHandlerT8413:
 
 #------------------로그인-----------------------
 
-id = input("웹 로그인 아이디: ")
-passwd = input("웹 로그인 비밀번호: ")
-cert_passwd = input("공인인증서 비번: ")
+# id = input("웹 로그인 아이디: ")
+# passwd = input("웹 로그인 비밀번호: ")
+# cert_passwd = input("공인인증서 비번: ")
+
+
+id = "wnsk11"
+passwd = "850202@a"
+cert_passwd = "awbwd4@8501"
+
 
 
 
@@ -53,6 +59,8 @@ instXAQueryT8413.SetFieldData("t8413InBlock", "comp_yn", 0, "N")
 instXAQueryT8413.Request(0)
 
 count_1 = 0
+
+#접속될 때 까지 call-back 반복
 while XAQueryEventHandlerT8413.query_state == 0:
     pythoncom.PumpWaitingMessages()
     count_1 += 1
